@@ -7,8 +7,8 @@ const randomZodiac = (arr) => {
 
 function createFile(n) {
   for(let i = 0; i < n; i++){
-    const newRandomZodiac = randomZodiac(zodiacArray);
-    fs.writeFile(`./${randomZodiac}.txt`, newRandomZodiac, (err) => {
+    const newRandomZodiac = zodiacArray[randomZodiac(zodiacArray)];
+    fs.writeFile(`./new-files/${i}.txt`, newRandomZodiac, (err) => {
       if(err) return console.error(err);
     });
   }
