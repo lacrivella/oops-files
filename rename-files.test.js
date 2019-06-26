@@ -55,4 +55,21 @@ describe('rename functions', () => {
       done();
     });
   });
+
+  it('gets contents of file', done => {
+    fs.readFile('./new-files/0.txt', { encoding: 'utf8' }, (err, expectedContent) => {
+      readFile('./new-files/0.txt', (err,))
+    })
+  })
+
+  it('renames all file in directory to cont-fileNumber-date', () => {
+    renameEverything('./new-files', err => {
+      expect(err).toBeFalsy();
+
+      fs.readdir('./new-files', (err, files) => {
+        expect(files).toEqual(10);
+        done();
+      });
+    });
+  });
 });
