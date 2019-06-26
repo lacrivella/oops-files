@@ -1,18 +1,19 @@
 const fs = require('fs');
 
-const wordArray = ['rooster', 'dragon', 'tiger', 'rabbit', 'rat', 'ox', 'monkey', 'ram', 'horse', 'dog'];
-const randomWord = arr => {
-  return Math.floor(Math.random() * arr.length);
+const zodiacArray = ['rooster', 'dragon', 'tiger', 'rabbit', 'rat', 'ox', 'monkey', 'ram', 'horse', 'dog'];
+const randomZodiac = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
 };
-console.log(randomWord);
 
-function createFile() {
+function createFile(n) {
   for(let i = 0; i < n; i++){
-    const newRandomWord = wordArray[randomWord(wordArray)];
-    fs.writeFile(`./${randomWord}.txt`, randomWord, (err) => {
+    const newRandomZodiac = randomZodiac(zodiacArray);
+    fs.writeFile(`./${randomZodiac}.txt`, newRandomZodiac, (err) => {
       if(err) return console.error(err);
     });
   }
 }
 
-createFile(25);
+createFile(5);
+
+module.exports = createFile;
