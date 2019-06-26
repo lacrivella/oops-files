@@ -1,12 +1,7 @@
 const fs = require('fs');
 const { createFiles } = require('./index');
 
-describe ('create files', () => {
-  it('can get a random animal', () => { 
-    const animal = createFiles();
-    expect(animal).toEqual(expect.any(String));
-});
-
+describe('create files', () => {
   it('can write a bunch of files with anaimals in them', done => {
     createFiles('./new-files', 10, err => {
       expect(err).toBeFalsy();
